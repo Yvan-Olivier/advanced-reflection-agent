@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "advanced-reflexion-agent"
+version = "0.1.0"
+description = "Un agent de réflexion avancé qui utilise LangGraph pour améliorer itérativement ses réponses à des questions complexes"
+authors = ["Yvan-Olivier <yvanolivier203@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/votre-username/advanced-reflexion-agent"
+keywords = ["ai", "langgraph", "reflexion", "langchain", "agent"]
+packages = [{include = "advanced_reflexion_agent", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+python-dotenv = "^1.0.1"
+langchain = "^0.3.19"
+langchain-openai = "^0.3.7"
+langchain-community = "^0.3.18"
+langgraph = "^0.2.74"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.0"
+langchain-ollama = "^0.2.3"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
