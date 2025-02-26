@@ -1,75 +1,75 @@
-# Advanced Reflexion Agent
+# Advanced Reflection Agent 🤖
+An intelligent research agent that uses self-reflection and external information to iteratively improve its answers to complex questions.
 
-Un agent de réflexion avancé construit avec LangGraph qui utilise une approche réflexive pour améliorer ses réponses à des questions complexes.
+![Graph Architecture](graph.png)
 
-![Architecture du graphe](graph.png)
+## 🌟 Features
+- **Self-Reflection**: The agent analyzes and critiques its own responses to identify gaps and superfluous information
+- **Targeted Research**: Automatically generates relevant search queries based on its self-critique
+- **Iterative Refinement**: Improves responses through successive refinement cycles
+- **Evidence-Based Responses**: Incorporates numerical citations to back up claims
+- **Concise Delivery**: Maintains focused, approximately 250-word responses
 
-## À propos du projet
+## 🏗️ Architecture
+The project uses a LangGraph-based architecture with three primary components:
+1. **First Responder**: Generates an initial detailed answer and performs self-critique
+2. **Tool Executor**: Performs web searches via Tavily API based on identified knowledge gaps
+3. **Revisor**: Refines the response by incorporating research findings and addressing critiques
 
-Ce projet implémente un agent de réflexion avancé utilisant le framework LangGraph. L'agent est capable de:
-- Fournir une première réponse détaillée à une question
-- Réfléchir et critiquer sa propre réponse pour identifier ce qui manque ou ce qui est superflu
-- Générer des requêtes de recherche pour obtenir des informations supplémentaires
-- Réviser sa réponse en utilisant les nouvelles informations, incluant des citations numériques
+## 🛠️ Technology Stack
+- **LangGraph**: For creating the agent workflow and decision framework
+- **LangChain**: For prompt engineering and tool integration
+- **OpenAI GPT**: Powers the language understanding and generation capabilities
+- **Tavily Search API**: Provides real-time information for answer improvement
+- **Poetry**: Manages Python dependencies and environment
 
-L'architecture de l'agent suit un flux de travail itératif où chaque étape améliore la qualité de la réponse finale.
-
-## Prérequis
-
-- Python 3.9+
-- [Poetry](https://python-poetry.org/docs/#installation) (gestionnaire de dépendances Python)
-- Clés API pour:
+## 📋 Prerequisites
+- Python 3.12 or higher
+- Poetry for dependency management
+- API keys for:
   - OpenAI
-  - Tavily (pour les recherches web)
-  - LangSmith (optionnel, pour le traçage)
+  - Tavily Search
+  - LangSmith (optional, for tracing)
 
-## Installation
-
-1. Clonez ce dépôt
+## 🚀 Installation
+1. Clone the repository
    ```bash
-   git clone https://github.com/votre-username/advanced-reflexion-agent.git
-   cd advanced-reflexion-agent
+   git clone https://github.com/Yvan-Olivier/advanced-reflection-agent.git
+   cd advanced-reflection-agent
    ```
 
-2. Installez les dépendances avec Poetry
+2. Install dependencies with Poetry
    ```bash
    poetry install
    ```
 
-3. Configurez vos variables d'environnement en copiant le fichier d'exemple
+3. Set up your environment variables
    ```bash
    cp .env.example .env
+   # Edit the .env file with your API keys
    ```
-   
-   Puis modifiez le fichier `.env` avec vos propres clés API.
 
-## Utilisation
-
-1. Activez l'environnement virtuel
+## 💻 Usage
+1. Activate the virtual environment
    ```bash
    poetry shell
    ```
 
-2. Exécutez l'agent avec une question
-   ```bash
+2. Run the agent with a question
+   ```python
    python main.py
    ```
-   
-   Vous pouvez également modifier la question dans le fichier `main.py` pour tester différentes requêtes.
+   By default, the agent answers a question about AI reflection agents and the LATS algorithm.
 
-## Structure du projet
+3. To use with your own questions, modify the input in `main.py` or use the example script:
+   ```python
+   python example.py
+   ```
 
-- `main.py` - Point d'entrée du projet, définit le graphe de l'agent
-- `chains.py` - Contient les chaînes LangChain pour la génération de réponses
-- `schemas.py` - Définit les schémas Pydantic utilisés pour structurer les sorties
-- `tool_executor.py` - Implémente les outils de recherche pour l'agent
-
-## Fonctionnement
-
-L'agent fonctionne en suivant ces étapes:
-1. Génère une première réponse à la question de l'utilisateur
-2. Effectue une auto-critique de cette réponse
-3. Génère des requêtes de recherche basées sur la critique
-4. Exécute les recherches via l'API Tavily
-5. Révise la réponse en incorporant les résultats des recherches
-6. Répète le processus jusqu'à atteindre le nombre maximum d'itérations ou une réponse satisfaisante
+## 📊 Agent Workflow
+The agent follows this process:
+1. **Initial Answer**: Generates a detailed ~250 word response to the question
+2. **Self-Critique**: Identifies missing and superfluous elements in the answer
+3. **Research**: Generates and executes targeted search queries based on the critique
+4. **Refinement**: Produces an improved answer that incorporates new information
+5. **Citations**: Adds numerical references to external sources to support claims
